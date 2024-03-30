@@ -1,0 +1,17 @@
+{
+  "projectFileVersion": 2,
+  "sourceFiles": [
+    "**/YarnSource/*.yarn",
+    "**/YarnSource/*.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*"
+  ],
+  "localisation": {
+    "en": {
+      "assets": "YarnSource\\EN"
+    }
+  },
+  "baseLanguage": "en",
+  "compilerOptions": {}
+}

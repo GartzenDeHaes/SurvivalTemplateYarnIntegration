@@ -1,0 +1,169 @@
+title: Init
+---
+// These are global, so Init doesn't need to be called from anywhere.
+
+// Stats that are synchronized from STP
+<<declare $StatHealth = 100>>
+<<declare $StatHealthPct = 1>>
+<<declare $StatHunger = 0>>
+<<declare $StatHungerPct = 0>>
+<<declare $StatStaminia = 100>>
+<<declare $StatStaminiaPct = 1>>
+<<declare $StatThirst = 0>>
+<<declare $StatThirstPct = 0>>
+
+// Quests
+<<declare $Qust_WaterChip = "NOT_STARTED">> // STARTED, HAS_IT, COMPLETE
+
+// Flags
+<<declare $Lisa_State = "START">>	// TALKED, AFRAID
+<<declare $Overseer_State = "NOT_STARTED">>	// APPLE, GOT_APPLE, REFUSED
+
+// STP Functions
+
+// cmd_notification("Text", "white")	
+// Display a message in the notification area. Color is optional.
+
+// is_crouching()
+// True if the character is in crouch state.
+
+// get_itemcount("Apple")	
+// Returns the total number of the items in the inventory. Look at the ItemDefintion editor window to get the item names.
+
+// has_item("Apple")
+// Returns true if the inventory has any of the item
+
+// cmd_removeitem("Apple", count = 1)
+// Remove items from the inventory (default is one)
+===
+
+title: Overseer_START
+---
+<<if $Qust_WaterChip == "NOT_STARTED">>
+	Overseer: Ahh, you're here. Good. We've got a problem. A big one. The controller chip for our water purification system has failed. We're running out of drinking water. No water, no Vault. This is crucial to our survival. And frankly, I think you're the only hope we have. We need you to go find us another controller chip. #line:Over_01
+	Overseer: We marked your map with the location of a red button nearby. Not a bad place to start, I think. Just be safe, OK? #line:Over_02
+	<<cmd_notification "Quest Added: Find the water chip.">>
+	<<set $Qust_WaterChip to "STARTED">>
+<<elseif $Qust_WaterChip == "STARTED">>
+	Overseer: You're back! And in one piece! How goes the search? #line:Over_03
+	-> Not good, but I noticed the radiation count is low. Why don't we just move the people out of the vault?
+		Overseer: We've debated this before. You ought to know now, after being out there! You think the rest of us could survive that? Besides, I'd be out of a job! I'm management! It's not like I know how to do anything useful! #line:Over_04
+		-> We agree on that.
+			<<stop>>
+	-> I haven't found the chip yet. Can't we just make a replacement?
+		Overseer: Ahh, you never did listen to me. We don't have the necessary parts anymore. We've used up all the supplies required. #line:Over_05
+		-> Oh, ok. Thanks.
+			<<stop>>
+	-> Nothing yet.
+		Overseer: Look, I know it's got to be tough. But we're counting on you. And we're running out of time. Please! Keep trying! #line:Over_06
+		-> I understand. I'll work harder to find the chip.
+			<<stop>>
+<<elseif $Qust_WaterChip == "HAS_IT">>
+	Overseer: Have you found the chip? #line:Over_07
+	-> Yes.
+		<<jump Overseer_WATERCHIP_GAVEIT1>>
+	-> Yes, but I think we should talk more about letting people leave the Vault.
+		Overseer: Well, you've certainly earned that right. But let's take care of survival first. Give me the chip and we'll discuss this when you give your report. #line:Over_08
+		-> Fair enough.
+			<<jump Overseer_WATERCHIP_GAVEIT1>>
+		-> I don't know.
+			Overseer: Please, the chip! #line:Over_09
+			-> Fair enough.
+				<<jump Overseer_WATERCHIP_GAVEIT1>>
+			-> I don't know.
+				<<jump Overseer_WATERCHIP_GIMME>>
+	-> No
+		Overseer: Well, keep looking. We need that chip. #line:Over_10
+		<<stop>>
+<<elseif $Overseer_State == "NOT_STARTED">>
+	Overseer: I uh, I just wanted to let you know that the water supply has stabilized. Actually, we're rebuilding our reserves. You did great. #line:Over_11
+	Overseer: There is just one other thing. I need an apple. Go find one and bring it back. #line:Over_12
+	<<set $Overseer_State to "APPLE">>
+	-> Okay, right away sir.
+		<<stop>>
+	-> Can't you get it yourself?
+		Overseer: What? Why no, of course not. The apple is over their on the table. I am over here. So I need you to go get it. #line:Over_13
+		-> Alright, I guess.
+			<<stop>>
+		-> No, I'm not doing it.
+			<<set $Overseer_State to "REFUSED">>
+			Overseer: Well, I can't force you. #line:Over_14
+			<<stop>>
+<<elseif $Overseer_State == "APPLE">>
+	Overseer: Do you have an apple yet? #line:Over_15
+	-> Yes
+		Overseer: Good, now give it to me. #line:Over_16
+		-> Okay.
+			<<cmd_removeitem "Apple">>
+			<<set $Overseer_State to "GOT_APPLE">>
+			Overseer: That's the ticket. You're dismissed now. #line:Over_17
+			<<cmd_notification "You gain 5 experience points for returning with the apple. Congratulations!">>
+			<<stop>>
+		-> No, I don't think so.
+			Overseer: Come back when you come to your senses. #line:Over_18
+			<<stop>>
+	-> No
+		Overseer: Ok, come back as soon as you find it. #line:Over_19
+<<else>>
+	Overseer: No time to talk right now. #line:Over_20
+<<endif>>
+===
+
+title: Overseer_WATERCHIP_GIMME
+---
+Overseer: Please, the chip! #line:Over_21
+-> Fair enough.
+	<<jump Overseer_WATERCHIP_GAVEIT1>>
+-> I don't know.
+	<<jump Overseer_WATERCHIP_GIMME>>
+===
+title: Overseer_WATERCHIP_GAVEIT1
+---
+Overseer: Great! Let me have it. We'll see if it works. #line:Over_22
+Overseer: Okey-dokey. One moment, the chip is initializing. Wait -- wait - wait... There it goes ... Self-test is green . . . re-boot is good . . . Hah! It's working! And it looks like we have a winner! Haha! You—you've saved us. You've done it! #line:Over_23
+-> Ahh, it was nothing.
+	Overseer: Nothing? No, oh no! It was something. Don't downplay what you've done. You've saved a lot of lives. All right, now we need a report on what's out there. Please go to the library. #line:Over_24
+	<<jump Overseer_WATERCHIP_COMPLETE>>
+-> You're welcome.
+	Overseer: You saved the Vault. You should be proud. But now, we need your report. #line:Over_25
+	<<jump Overseer_WATERCHIP_COMPLETE>>
+===
+
+title: Overseer_WATERCHIP_COMPLETE
+---
+<<set $Qust_WaterChip to "COMPLETE">>
+<<cmd_notification "You gain 7,500 experience points for returning with the water chip and saving the Vault. Congratulations!">>
+===
+
+title: Lisa_START
+---
+<<if $Qust_WaterChip == "NOT_STARTED">>
+Lisa: Nice weather we're having. #line:Lisa_01
+-> Yep!
+	Lisa: So pleasant. #line:Lisa_02
+-> Nope.
+	Lisa: Not everyone fits in here you know. #line:Lisa_04
+<<elseif $Qust_WaterChip == "STARTED">>
+	<<if $Lisa_State == "START">>
+		<<set $Lisa_State to "TALKED">>
+		Lisa: We're going to die without that water chip. Please find it soon. #line:Lisa_03
+		-> I'll find it in no time.
+			Lisa: I'm so glad the Overseer assigned you to find it. #line:Lisa_05
+		-> Might take a while.
+			<<set $Lisa_State to "AFRAID">>
+			Lisa: We're doomed! #line:Lisa_06
+	<<elseif $Lisa_State == "TALKED">>
+		Lisa: Please hurry! #line:Lisa_07
+	<<else>>
+		Lisa: We're all gonna die. #line:Lisa_08
+	<<endif>>
+<<elseif $Qust_WaterChip == "HAS_IT">>
+	Lisa: Please hurry and see the Overseer. #line:Lisa_09
+<<elseif has_item("Apple")>>
+	Lisa: Nice apple. #line:Lisa_11
+<<elseif $Qust_WaterChip == "COMPLETE">>
+	Lisa: You are a hero! #line:Lisa_10
+<<else>>
+	System: I don't know what's going on here.
+<<endif>>
+===
