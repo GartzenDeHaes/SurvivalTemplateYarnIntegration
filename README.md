@@ -1,5 +1,4 @@
-# SurvivalTemplateYarnIntegration
-Survival Template Pro and Yarn Spinner integration
+# Survival Template Pro / Yarn Spinner Integration
 
 ### Featuress
 
