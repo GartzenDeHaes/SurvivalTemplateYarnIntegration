@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.754717, g: 0.67433065, b: 0.66571736, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.006
+  m_FogDensity: 0.009
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.6415094, g: 0.5347129, b: 0.3721965, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 99959703}
-  m_IndirectSpecularColor: {r: 0.17926486, g: 0.20885734, b: 0.26260266, a: 1}
+  m_IndirectSpecularColor: {r: 0.17926507, g: 0.20885769, b: 0.26260346, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: c9563570402664448b6c147b51bad0a5, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: e7c044276e128e74cb893d8f3c0e6ae7, type: 2}
   m_LightingSettings: {fileID: 641244811}
 --- !u!196 &4
 NavMeshSettings:
@@ -6006,7 +6006,7 @@ LightingSettings:
   m_Name: Settings.lighting
   serializedVersion: 6
   m_GIWorkflowMode: 0
-  m_EnableBakedLightmaps: 0
+  m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 1
   m_RealtimeEnvironmentLighting: 1
   m_BounceScale: 1
@@ -6014,10 +6014,10 @@ LightingSettings:
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 0
   m_BakeBackend: 2
-  m_LightmapMaxSize: 1024
-  m_BakeResolution: 10
+  m_LightmapMaxSize: 2048
+  m_BakeResolution: 12
   m_Padding: 2
-  m_LightmapCompression: 2
+  m_LightmapCompression: 3
   m_AO: 1
   m_AOMaxDistance: 1
   m_CompAOExponent: 1
@@ -6029,7 +6029,7 @@ LightingSettings:
   m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
   m_ExportTrainingData: 0
   m_TrainingDataDestination: TrainingData
-  m_RealtimeResolution: 3
+  m_RealtimeResolution: 4
   m_ForceWhiteAlbedo: 0
   m_ForceUpdates: 0
   m_FinalGather: 0
@@ -6037,18 +6037,18 @@ LightingSettings:
   m_FinalGatherFiltering: 1
   m_PVRCulling: 1
   m_PVRSampling: 1
-  m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 128
-  m_PVREnvironmentSampleCount: 128
+  m_PVRDirectSampleCount: 64
+  m_PVRSampleCount: 256
+  m_PVREnvironmentSampleCount: 256
   m_PVREnvironmentReferencePointCount: 2048
   m_LightProbeSampleCountMultiplier: 4
   m_PVRBounces: 2
   m_PVRMinBounces: 2
   m_PVREnvironmentImportanceSampling: 1
   m_PVRFilteringMode: 2
-  m_PVRDenoiserTypeDirect: 3
-  m_PVRDenoiserTypeIndirect: 3
-  m_PVRDenoiserTypeAO: 0
+  m_PVRDenoiserTypeDirect: 1
+  m_PVRDenoiserTypeIndirect: 1
+  m_PVRDenoiserTypeAO: 1
   m_PVRFilterTypeDirect: 0
   m_PVRFilterTypeIndirect: 0
   m_PVRFilterTypeAO: 0
@@ -7139,7 +7139,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 7e15121f5f042ed46aba81406403f2d2, type: 3}
       propertyPath: m_Name
-      value: Lyle
+      value: Lisa
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7e15121f5f042ed46aba81406403f2d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10285,7 +10285,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 126
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &1107775277
 Transform:
@@ -14551,7 +14551,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 126
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &1540077373
 Transform:
@@ -18944,7 +18944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108177315632372534, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108177315632372534, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BounceIntensity
@@ -18952,19 +18952,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108177315632372534, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -0.00000007446423
+      value: 2.5387528e-37
       objectReference: {fileID: 0}
     - target: {fileID: 108177315632372534, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: -0.000000022351742
+      value: 7.23e-43
       objectReference: {fileID: 0}
     - target: {fileID: 108177315632372534, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0.017658666
+      value: 4.1910886e-37
       objectReference: {fileID: 0}
     - target: {fileID: 108177315632372534, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: -0.000000048428774
+      value: 7.23e-43
       objectReference: {fileID: 0}
     - target: {fileID: 108475593670694308, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_Intensity
@@ -18972,23 +18972,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 108475593670694308, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_Lightmapping
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108475593670694308, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 15.149765
+      value: 2.2412357e+20
       objectReference: {fileID: 0}
     - target: {fileID: 108475593670694308, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 6.888519e+22
+      value: 7.212827e+22
       objectReference: {fileID: 0}
     - target: {fileID: 108475593670694308, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 6.0320214e+22
+      value: 1.09002504e+27
       objectReference: {fileID: 0}
     - target: {fileID: 108475593670694308, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 2.642441e+29
+      value: 1.573004e+25
       objectReference: {fileID: 0}
     - target: {fileID: 114928552840992568, guid: 839dcce601455b147a73a95b3a6a6d00, type: 3}
       propertyPath: m_Time.Hour
@@ -20462,7 +20462,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 126
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &2100266509
 Transform:
@@ -21159,7 +21159,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 126
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &2140382906
 Transform:
