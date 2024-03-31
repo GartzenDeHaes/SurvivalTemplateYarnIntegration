@@ -13,9 +13,10 @@
     * is_crouching() true if the player is in crouch state.
     * get_itemcount("Item Name") returns the total number of an item type in the player's inventory.
     * has_item("Item Name") returns true if the player has any of the item type
-<!---
-[https://www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
---->
+
+### Demo
+[https://youtu.be/wDnluM5Ja3E](https://youtu.be/wDnluM5Ja3E)
+
 
 [Yarn Spinner](https://www.yarnspinner.dev/)
 
