@@ -15,8 +15,7 @@
     * has_item("Item Name") returns true if the player has any of the item type
 
 ### Demo
-[https://youtu.be/wDnluM5Ja3E](https://youtu.be/wDnluM5Ja3E)
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wDnluM5Ja3E/0.jpg)](https://www.youtube.com/watch?v=wDnluM5Ja3E)
 
 [Yarn Spinner](https://www.yarnspinner.dev/)
 
